@@ -1,0 +1,59 @@
+# Model Configuration for Network Traffic Classification
+
+# Random Forest Configuration
+random_forest:
+  n_estimators: 100
+  max_depth: 20
+  min_samples_split: 5
+  min_samples_leaf: 2
+  max_features: "sqrt"
+  random_state: 42
+  n_jobs: -1
+  class_weight: "balanced"
+
+# XGBoost Configuration  
+xgboost:
+  n_estimators: 100
+  max_depth: 10
+  learning_rate: 0.1
+  subsample: 0.8
+  colsample_bytree: 0.8
+  random_state: 42
+  n_jobs: -1
+
+# Training Configuration
+training:
+  test_size: 0.2
+  validation_size: 0.1
+  random_state: 42
+  stratify: true
+  
+# Feature Engineering
+features:
+  scaling: "standard"  # Options: standard, minmax, robust, none
+  handle_missing: "mean"  # Options: mean, median, drop, zero
+  remove_low_variance: true
+  variance_threshold: 0.01
+  
+# Performance Targets
+targets:
+  min_accuracy: 0.95
+  min_precision: 0.93
+  min_recall: 0.93
+  min_f1: 0.93
+  
+# Monitoring Configuration
+monitoring:
+  data_drift_threshold: 0.1
+  model_drift_threshold: 0.05
+  prediction_drift_threshold: 0.1
+  monitoring_window_size: 1000
+  
+# Retraining Configuration
+retraining:
+  enable_auto_retrain: true
+  retrain_on_drift: true
+  retrain_on_performance_drop: true
+  performance_drop_threshold: 0.05
+  min_samples_for_retrain: 5000
+  retrain_schedule: "daily"  # Options: hourly, daily, weekly, manual
