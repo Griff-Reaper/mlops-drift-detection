@@ -1,0 +1,226 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Drift Detection Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+                .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+                h1 { color: #333; border-bottom: 3px solid #4CAF50; padding-bottom: 10px; }
+                h2 { color: #555; margin-top: 30px; }
+                .metric { background: #f9f9f9; padding: 15px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+                .warning { border-left-color: #ff9800; }
+                .alert { border-left-color: #f44336; }
+                .drift-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0; }
+                .stat-box { background: #e3f2fd; padding: 20px; border-radius: 4px; text-align: center; }
+                .stat-value { font-size: 32px; font-weight: bold; color: #1976d2; }
+                .stat-label { color: #666; margin-top: 5px; }
+                table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+                th { background: #4CAF50; color: white; }
+                .drift-yes { color: #f44336; font-weight: bold; }
+                .drift-no { color: #4CAF50; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🔍 Data Drift Detection Report</h1>
+                
+                <div class="drift-stats">
+                    <div class="stat-box">
+                        <div class="stat-value">NO</div>
+                        <div class="stat-label">Dataset Drift</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">41.4%</div>
+                        <div class="stat-label">Drift Share</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">12/29</div>
+                        <div class="stat-label">Drifted Features</div>
+                    </div>
+                </div>
+                
+                <h2>Summary</h2>
+                <div class="metric ">
+                    <strong>Dataset Drift:</strong> ✅ NOT DETECTED<br>
+                    <strong>Drift Share:</strong> 41.38% of features show significant drift<br>
+                    <strong>Threshold:</strong> 50%
+                </div>
+                
+                <h2>Feature-Level Drift Analysis</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Drift Detected</th>
+                            <th>Drift Score (KS Statistic)</th>
+                            <th>P-Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>feature_5</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.3004</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_21</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.2908</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_4</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.2892</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_24</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.2853</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_22</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.2845</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_6</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.2758</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_20</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.2756</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_26</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.2727</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_1</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.0736</td>
+                            <td>0.000000</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_10</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.0414</td>
+                            <td>0.002957</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_25</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.0400</td>
+                            <td>0.004492</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_28</td>
+                            <td class="drift-yes">YES</td>
+                            <td>0.0377</td>
+                            <td>0.008883</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_14</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0270</td>
+                            <td>0.123704</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_17</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0234</td>
+                            <td>0.247505</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_15</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0227</td>
+                            <td>0.278687</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_3</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0211</td>
+                            <td>0.364175</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_19</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0191</td>
+                            <td>0.483871</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_27</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0180</td>
+                            <td>0.565914</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_8</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0174</td>
+                            <td>0.608103</td>
+                        </tr>
+            
+                        <tr>
+                            <td>feature_2</td>
+                            <td class="drift-no">NO</td>
+                            <td>0.0169</td>
+                            <td>0.645141</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                
+                <h2>Recommendations</h2>
+                <div class="metric warning">
+        
+                    <strong>✅ No Action Needed:</strong><br>
+                    • Data distribution remains stable<br>
+                    • Continue normal monitoring schedule<br>
+                    • Model performance should remain consistent
+            
+                </div>
+                
+                <h2>About This Report</h2>
+                <div class="metric">
+                    <strong>Statistical Test:</strong> Kolmogorov-Smirnov (KS) two-sample test<br>
+                    <strong>Significance Level:</strong> 0.05 (95% confidence)<br>
+                    <strong>Drift Threshold:</strong> 50% of features must drift to trigger dataset-level drift<br>
+                    <strong>Generated:</strong> 2026-02-07 22:15:59
+                </div>
+            </div>
+        </body>
+        </html>
+        
